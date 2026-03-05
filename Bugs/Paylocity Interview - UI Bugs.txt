@@ -1,0 +1,33 @@
+Login:
+    Bad Login takes you to 405 error page
+        STEPS:  Login with a bad username or password and observe the 405 ERROR page
+    Hitting 'Back' in browser from 405 error page at login takes you to the dashboard if you were previously logged in
+        STEPS: Ensure you log in successfully, then logout, then Login with a bad username and get to the 405 page, 
+                then hit your browser's back button and it will take you to the Dashboard
+    Console error 403 Forbidden for the favicon.ico
+        STEPS: From the login page open the console and observe the 403 error on the GET call for the favicon
+    White space not trimmed from password field
+        STEPS: From the login page enter a valid username and a valid password, add some trailing space before or after the password
+                you will get an invalid password message
+    Can try unlimited logins on failure, could lead to brute force attack
+
+Dashboard:
+    Columnns are not sortable and the list appears to be sorted by ID
+    Column header for First Name and Last Name are switched
+    Adding too many dependants(>32) does not show an error message but does show a 400 error in the console.
+        STEPS:  From the dashboard select the edit action and change the dependents to a number over 32 and hit Update, notice no error
+    Adding an extremely long name when doing an update doesn't throw an error but won't update either
+    Name Fields allow numeric and special characters when adding or updating employees
+        STEPS: Add or Update an employee and give numeric and special characters or for name (first or last)
+    When adding or updating a dependant for an employee you can put in other characters than numbers and it strips them
+    The border of the table is a fixed width long names cause the Actions column to appear outside of the border 
+        STEPS: Add or edit a user to have a long first name (>30 characters) and lastname, observe the border of the table
+                stay the same size length wise
+    Border resize with the window but the data does not
+        STEPS: Resize the window while on the dashboard (Shrink), notice the rightmost border of the table resizing but the elements
+                in the table do not.
+    Add Employee Button should be at top of dashboard or both top and bottom.
+        No pagination, a lot of entries make accessing the "Add Employee" button require scrolling
+    Update Employee modal shows "Add Employee" as title
+    If you log out from the dashboard it takes you to the login screen.  Clicking the header "Paylocity Benefits Dashboard" takes you to a blank dashboard without logging in
+    After being idle for a while you can still click around and open the edit/add/delete modals but can't submit

@@ -1,0 +1,20 @@
+﻿API Bugs: 
+* Dependants should be dependents
+* Username is always the same as the Partition Key on creating a new Employee with a POST
+   * Add a new employee with a POST command, give a unique username to the payload. Observe when retrieving the employee list that the username for the newly added employee is not the unique string given in the request payload.
+* Salary always defaults to 52000 no matter which value is given in a POST (not sure a bug given the assumptions from the initial email)
+   * Add an Employee and give any value other than 52000 for salary, observer the response showing 52000 as the salary for the newly created employee
+* Can add a user without the username field, docs show it as required
+   * Add an Employee with a POST and all required fields (first and lastname) but no username, response will be 200 and it should be 400
+* Salary can be added as a negative number. 
+   * Add an Employee with a POST and give a negative number for salary in the payload.  Response shows as 200 when expecting a 400
+* GET By ID returns 200 on invalid ID or an ID that was valid but no longer exists
+   * Create or find a user and use their ID on the api/Employees/{ID} endpoint and it returns a success message 
+* GET By ID Returns a 500 error when using an ID that doesn’t exist
+   * Call /api/Employees/{id} using 00000000-0000-0000-0000-000000000000 it should give a 404 error but instead is showing 500
+* GET shows 500 error when using an invalid token in the header.
+* Using a String in the dependants field on a POST gives a 405 error but should show a 400
+   * Add an Employee with a POST and use a string instead of number for dependants.
+* Using a String in the salary field on a POST gives a 405 error but should show a 400
+   * Add an Employee with a POST and use a string instead of number for salary.
+* PUT allows you to update salary, the Assumptions from the email say all employees are paid 2000 per paycheck. 
